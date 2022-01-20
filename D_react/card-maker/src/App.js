@@ -1,10 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import styles from './App.module.css';
+import Login from './component/login/login';
 
-function App() {
+function App({ authService }) {
   return (
-    <div className="App">
-
+    <div className={styles.app}>
+      <Login authService={authService}/>
     </div>
   );
 }
