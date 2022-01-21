@@ -1,0 +1,47 @@
+
+@import './_reset.scss';
+
+$mainColor : #ff0000;
+
+// .container{
+//     p{
+//         color: green;
+//     }
+// }
+
+.my-alert{
+    background : #eeeeee;
+    padding : 15px;
+    border-radius : 5px;
+    max-width : 500px;
+    width : 100%;
+    margin : auto;
+
+    p{
+        color: $mainColor;
+        margin-bottom : 0;
+    }
+}
+
+.my-alert-y{
+    @extend .my-alert;
+    background : #ffe591;
+}
+
+@mixin function() {
+    background : #eeeeee;
+    padding : 15px;
+    border-radius : 5px;
+    max-width : 500px;
+    width : 100%;
+    margin : auto;
+}
+
+.my-alert-m{
+    @include function()
+}
+
+
+
+
+

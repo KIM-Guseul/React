@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+}
+
+.jumbotron{
+  width: 100%;
+  padding: 40px 30px;
+  color: #eee;
+}
+
+.jumbotron > p{
+  margin: 25px 0;
+}
+
+.jumbotron p button{
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background: #0064a2;
+  color: #eee;
+}
+
+.background {
+  background-image : url(./background.jpg);
+  background-size: cover;
+  background-position : center;
+}
+
