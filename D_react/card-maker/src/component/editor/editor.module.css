@@ -1,9 +1,9 @@
-@value makerGreen, makerWhite, makerBlack from "../../common/colors.css";
+@value makerGreen, makerWhite, makerBlack, makerLightGrey from "../../common/colors.css";
 
 .editor{
   flex-basis: 50%;
-  background-color: makerWhite;
-  border: 1px solid pink;
+  border-right: 1px solid makerLightGrey;
+  padding: 0.5em 2em;
 }
 
 .title{
@@ -12,6 +12,3 @@
   color: makerGreen;
   margin-bottom: 1em;
 }
-
-
-

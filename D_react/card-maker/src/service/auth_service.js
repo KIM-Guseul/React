@@ -1,7 +1,6 @@
 import firebase from 'firebase';
 import firebaseApp from './firebase';
 
-
 class AuthService {
 
   //=== 로그인 ===
@@ -21,8 +20,6 @@ class AuthService {
       onUserChanged(user);
     });
   }
-
-
 
 }
 
