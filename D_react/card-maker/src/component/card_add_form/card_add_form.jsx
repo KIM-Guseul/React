@@ -68,7 +68,7 @@ const CardAddForm = ({onAdd}) => {
       />
       <input 
       ref={emailRef}
-      lassName={styles.input} 
+      className={styles.input} 
       type="text" 
       name="email" 
       placeholder="email"
