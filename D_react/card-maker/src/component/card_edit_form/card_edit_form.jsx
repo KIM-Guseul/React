@@ -4,15 +4,20 @@ import Button from '../button/button';
 import ImageFileInput from '../image_file_input/image_file_input';
 
 const CardEditForm = ({ card, updateCard, deleteCard }) => {
+
   const {name, company, theme, title, email, message, fileName, fileURL} = card;
-  const onSubmit = () => {
-    
-      
+
+  const onDeleteCard = (e) => {
+    deleteCard(card);
   }
+
   const onChange = (e) => {
     if(e.currentTarget == null){
       return;
     }
+    // console.log('name', e.currentTarget.name)
+    // console.log('value', e.currentTarget.value)
+
     e.preventDefault();
     updateCard({
       ...card,
@@ -22,8 +27,9 @@ const CardEditForm = ({ card, updateCard, deleteCard }) => {
   }
 
   return(
-    <form className={styles.form}>
-
+    <form 
+    className={styles.form}
+    >
       <input 
       className={styles.input} 
       type="text" name="name" 
@@ -74,7 +80,7 @@ const CardEditForm = ({ card, updateCard, deleteCard }) => {
       <Button 
       className={styles.button} 
       name='Delete' 
-      onClick={onSubmit}/>
+      onClick={onDeleteCard}/>
   
     </form>
 

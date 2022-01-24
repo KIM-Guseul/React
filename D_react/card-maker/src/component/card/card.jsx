@@ -8,7 +8,7 @@ const Card = ({card}) => {
     const url = fileURL || DEFAULT_IMAGE;
     
   return(
-    <li className={`${styles.card} ${getStyels(theme)}`}>
+    <li className={`${styles.card} ${getStyles(theme)}`}>
 
       <img className={styles.avatar} src={url} alt="profile photo" />
 
@@ -26,19 +26,17 @@ const Card = ({card}) => {
 
 // === theme 별 배경색 지정 ===
 
-function getStyels(theme){
-
-  switch(theme){
-    case 'dark' :
+function getStyles(theme) {
+  switch (theme) {
+    case 'dark':
       return styles.dark;
-    case 'light' :
+    case 'light':
       return styles.light;
-    case 'colorful' :
+    case 'colorful':
       return styles.colorful;
-    default : 
-      throw new Error(`Unknown theme: ${theme}`);
+    default:
+      throw new Error(`unknown theme: ${theme}`);
   }
-
 }
 
 export default Card;

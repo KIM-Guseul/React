@@ -7,8 +7,8 @@ import Editor from '../editor/editor';
 import Preview from '../preview/preview';
 
 const Maker = ({authService}) => {
-  const [cards, setCards] = useState([
-    {
+  const [cards, setCards] = useState({
+    '1': {
       id: '1',
       name: 'Guseul',
       company: '1024',
@@ -19,7 +19,7 @@ const Maker = ({authService}) => {
       fileName: 'guseul',
       fileURL: '/images/guseul.png'
     },
-    {
+    '2': {
       id: '2',
       name: 'Golden',
       company: '1024',
@@ -30,7 +30,7 @@ const Maker = ({authService}) => {
       fileName: 'bead',
       fileURL: null
     },
-    {
+    '3': {
       id: '3',
       name: 'Bead',
       company: '1024',
@@ -41,7 +41,9 @@ const Maker = ({authService}) => {
       fileName: 'bead',
       fileURL: '/images/bead.png'
     }
-  ]);
+  });
+  // 배열로 full loop 돌리는 방법 : 데이터가 많아지면 효율성 떨어져.
+  // key , object 이용해서 key값이 일치하는 데이터만 업데이트
 
   const navigate = useNavigate();
   const onLogout = () => {
@@ -56,19 +58,34 @@ const Maker = ({authService}) => {
     });
   });
 
-  const onAdd = (card) => {
-    const updated = [...cards, card]
-    setCards(updated);
+  // const onAdd = (card) => {
+  //   const updated = [...cards, card]
+  //   setCards(updated);
+  // }
+
+  const createOrUpdateCard = card => {
+    // const updated = { ...cards }; 
+    // updated[card.id] = card;
+    // setCards(updated);
+    /* !! 컴포넌트 안에 있는 state 이용해서 업데이트 :: 동기적으로 업데이트 할 수 없을수도 있어 (오래된 스테이트..)*/
+
+    setCards(cards => {
+      const updated = { ...cards }; 
+      updated[card.id] = card;
+      return updated;
+    });
+    /* 콜백함수 이용 => 최신의 스테이트값 불러와서 업데이트 */
   }
 
-  const updateCard = (card) => {
-    console.log(card);
+  const deleteCard = card => {
 
-  }
+    setCards(cards => {
 
-  const deleteCard = (card) => {
-    console.log(card);
+      const updated = { ...cards }; 
+      delete updated[card.id];
+      return updated;
 
+    });
   }
 
 
@@ -79,8 +96,8 @@ const Maker = ({authService}) => {
       <div className={styles.container}>
         <Editor 
         cards={cards} 
-        onAdd={onAdd}
-        updateCard={updateCard}
+        onAdd={createOrUpdateCard}
+        updateCard={createOrUpdateCard}
         deleteCard={deleteCard}
 
         />
